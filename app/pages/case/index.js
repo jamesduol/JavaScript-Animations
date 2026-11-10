@@ -1,0 +1,39 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unreachable */
+/* eslint-disable constructor-super */
+import Page from 'classes/Page'
+
+export default class extends Page {
+  constructor () {
+    super({
+      id: 'case',
+
+      classes: {
+        active: 'case--active'
+      },
+
+      element: '.case',
+      elements: {
+        wrapper: '.case__wrapper',
+
+        navigation: document.querySelector('.navigation'),
+        title: '.case__title'
+      }
+    })
+  }
+
+  /**
+   * Animations.
+   */
+  async show (url) {
+    this.element.classList.add(this.classes.active)
+
+    return super.show(url)
+  }
+
+  async hide (url) {
+    this.element.classList.remove(this.classes.active)
+
+    return super.hide(url)
+  }
+}
